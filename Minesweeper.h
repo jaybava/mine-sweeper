@@ -10,6 +10,7 @@
 #include <QVBoxLayout>
 #include <QScreen>
 #include <QGuiApplication>
+#include <QMessageBox>
 
 /**
  * @brief The Minesweeper class represents the main game window and logic
@@ -50,6 +51,7 @@ private:
     QVector<int> bombCounts;       // Number of adjacent bombs for each cell
     QWidget* mainMenu;            // Main menu widget
     QWidget* gameWidget;          // Game board widget
+    QVector<QVector<int>> neighborIndices;
 
     /**
      * @brief Initializes the game grid with buttons
@@ -106,6 +108,11 @@ private:
      * @brief Centers the window on the screen
      */
     void centerWindow();
+
+    void showCenteredMessageBox(const QString& title, const QString& text, 
+                               QMessageBox::StandardButtons buttons);
+    void resetButton(QPushButton* button);
+    void setButtonIcon(QPushButton* button, const QString& iconPath);
 
 signals:
     void gameOver(bool win);

@@ -268,7 +268,7 @@ void Minesweeper::revealCell(int row, int col) {
             showCenteredMessageBox("Game Over!", "You're out of lives!", QMessageBox::Reset | QMessageBox::Close);
         } else {
             // Show remaining lives message
-            showCenteredMessageBox("Hit a Mine!", QString("Lives remaining: %1"), QMessageBox::Ok);
+            showCenteredMessageBox("Hit a Mine!", QString("Lives remaining: %1").arg(currentLives), QMessageBox::Ok);
         }
         return;
     }
